@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removedor de Instrumentos - Página Inicial</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.png" alt="Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Início</a></li>
+                    <li><a href="#">Biblioteca</a></li>
+                </ul>
+            </nav>
+            <button id="logout-btn" class="btn">Sair</button>
+        </div>
+    </header>
+    <main class="home-container">
+        <h1>Bem-vindo, <span id="user-name"></span>!</h1>
+        <div class="upload-section">
+            <input type="file" id="audio-input" accept="audio/*" hidden>
+            <button id="upload-btn" class="btn btn-large">
+                <i class="fas fa-upload"></i> Carregar Música
+            </button>
+            <p id="file-name"></p>
+        </div>
+        <div class="instruments-section">
+            <h2>Selecione Intrumentos ou Vocais para remover:</h2>
+            <div class="instrument-options">
+                <label><input type="checkbox" value="drums"> Bateria</label>
+                <label><input type="checkbox" value="guitar"> Guitarra</label>
+                <label><input type="checkbox" value="bass"> Baixo</label>
+                <label><input type="checkbox" value="piano"> Teclado</label>
+                <label><input type="checkbox" value="vocals"> Vozes</label>
+            </div>
+            <button id="process-btn" class="btn btn-primary" disabled>Processar</button>
+        </div>
+        <div class="player-section" style="display: none;">
+            <h2>Resultado:</h2>
+            <audio id="audio-player" style="display: none;"></audio>
+            <div class="player-controls">
+                <button id="play-pause-btn" class="btn btn-circle">
+                    <i class="fas fa-play"></i>
+                </button>
+                <input type="range" id="seek-slider" min="0" max="100" value="0">
+                <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+            </div>
+        </div>
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p>Processando o áudio. Isso pode levar alguns minutos...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
