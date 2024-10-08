@@ -32,6 +32,12 @@ header {
     height: auto;
 }
 
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
 nav ul {
     display: flex;
     list-style-type: none;
@@ -40,7 +46,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
@@ -50,8 +56,25 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     color: #1db954;
+}
+
+#logout-btn {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#logout-btn:hover {
+    background-color: #fff;
+    color: #121212;
 }
 
 .home-container {
@@ -99,14 +122,15 @@ h1 {
     background-color: #1e1e1e;
     border-radius: 8px;
     padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .instrument-options {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
-    justify-content: center;
 }
 
 .instrument-options label {
@@ -254,49 +278,63 @@ h1 {
     font-size: 16px;
 }
 
-#logout-btn {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+@media (max-width: 768px) {
+    header {
+        position: static;
+        padding: 10px 0;
+    }
 
-#logout-btn:hover {
-    background-color: #fff;
-    color: #121212;
-}
-
-@media (max-width: 600px) {
     .header-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+    }
+
+    nav {
+        margin: 15px 0;
     }
 
     nav ul {
-        margin-top: 15px;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px;
     }
 
     #logout-btn {
         margin-top: 15px;
-        align-self: flex-start;
     }
 
-    .instrument-options {
-        flex-direction: column;
+    .home-container {
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-top: 20px;
+    }
+
+    .instruments-section {
+        max-height: 250px;
     }
 
     .instrument-options label {
-        width: 100%;
+        padding: 10px;
     }
 
     .player-controls {
         flex-direction: column;
+        align-items: center;
     }
 
     #play-pause-btn {
         margin-bottom: 15px;
+    }
+
+    #seek-slider {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
