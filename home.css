@@ -33,9 +33,8 @@ header {
 }
 
 nav {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 nav ul {
@@ -285,7 +284,7 @@ h1 {
     }
 
     .header-content {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -303,7 +302,7 @@ h1 {
     }
 
     #logout-btn {
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     .home-container {
